@@ -22,7 +22,7 @@ class FirstSection extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => ProfileMenu.show(context),
-                child: Image.asset("assets/images/person1.png", height: 60),
+                child: Image.asset("assets/icons/person1.png", height: 60),
               ),
               const Text("Wah!",
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
