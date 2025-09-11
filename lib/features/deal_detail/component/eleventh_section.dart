@@ -40,18 +40,12 @@ class EleventhSection extends StatelessWidget {
 
   Widget _ratingBox() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+      padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-          color: Colors.green, borderRadius: BorderRadius.circular(6)),
-      child: const Row(
-        children: [
-          Icon(Icons.star, size: 14, color: Colors.white),
-          SizedBox(width: 4),
-          Text('4.3',
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        ],
+        color: Colors.green,
+        borderRadius: BorderRadius.circular(6),
       ),
+      child: const Icon(Icons.star, size: 14, color: Colors.white),
     );
   }
 
@@ -65,12 +59,18 @@ class EleventhSection extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                  child: Text('You May Like',
-                      style: TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w700))),
-              Text('See All',
-                  style: TextStyle(
-                      color: Colors.deepOrange, fontWeight: FontWeight.w600)),
+                child: Text(
+                  'You May Like',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                ),
+              ),
+              Text(
+                'See All',
+                style: TextStyle(
+                  color: Colors.deepOrange,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ),
         ),
@@ -90,7 +90,7 @@ class EleventhSection extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
-                    BoxShadow(color: Colors.grey.shade200, blurRadius: 4)
+                    BoxShadow(color: Colors.grey.shade200, blurRadius: 4),
                   ],
                 ),
                 child: Column(
@@ -101,8 +101,9 @@ class EleventhSection extends StatelessWidget {
                       children: [
                         ClipRRect(
                           borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(12),
-                              topRight: Radius.circular(12)),
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
                           child: Image.asset(
                             'assets/images/${it['image']}',
                             width: 180,
@@ -110,74 +111,110 @@ class EleventhSection extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        // green box top-left
+                        // green discount box top-left
                         Positioned(
                           left: 8,
                           top: 8,
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 6, vertical: 4),
+                              horizontal: 6,
+                              vertical: 4,
+                            ),
                             decoration: const BoxDecoration(
                               color: Colors.green,
                               borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomRight: Radius.circular(10)),
+                                topLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
                             ),
-                            child: const Text('50% OFF',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12)),
+                            child: const Text(
+                              '50% OFF',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                              ),
+                            ),
                           ),
                         ),
-                        // heart circle top-right
+                        // filled heart circle top-right
                         Positioned(
                           right: 8,
                           top: 8,
                           child: Container(
                             decoration: const BoxDecoration(
-                                color: Colors.white, shape: BoxShape.circle),
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
                             padding: const EdgeInsets.all(6),
-                            child: const Icon(Icons.favorite_border,
-                                size: 16, color: Colors.red),
+                            child: const Icon(
+                              Icons.favorite,
+                              size: 16,
+                              color: Colors.red,
+                            ),
                           ),
                         ),
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 8),
+                        horizontal: 8.0,
+                        vertical: 8,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(it['title']!,
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.w600)),
+                          Text(
+                            it['title']!,
+                            style: const TextStyle(fontWeight: FontWeight.w600),
+                          ),
                           const SizedBox(height: 4),
-                          Text(it['subtitle']!,
-                              style: TextStyle(
-                                  color: Colors.grey.shade600, fontSize: 13)),
+                          Text(
+                            it['subtitle']!,
+                            style: TextStyle(
+                              color: Colors.grey.shade600,
+                              fontSize: 13,
+                            ),
+                          ),
                           const SizedBox(height: 8),
                           Row(
                             children: [
-                              Text(it['current']!,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold)),
+                              Text(
+                                it['current']!,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
+                              ),
                               const SizedBox(width: 8),
                               if ((it['old'] ?? '').isNotEmpty)
-                                Text(it['old']!,
-                                    style: const TextStyle(
-                                        color: Colors.grey,
-                                        decoration:
-                                            TextDecoration.lineThrough)),
+                                Text(
+                                  it['old']!,
+                                  style: const TextStyle(
+                                    color: Colors.grey,
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
+                                ),
                               const Spacer(),
-                              _ratingBox(),
+                              Row(
+                                children: [
+                                  _ratingBox(),
+                                  const SizedBox(width: 4),
+                                  const Text(
+                                    '4.3',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                           const SizedBox(height: 8),
-                          Text(it['redeemed']!,
-                              style: const TextStyle(
-                                  color: Color.fromARGB(255, 97, 97, 97))),
+                          Text(
+                            it['redeemed']!,
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 97, 97, 97),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -186,7 +223,7 @@ class EleventhSection extends StatelessWidget {
               );
             },
           ),
-        )
+        ),
       ],
     );
   }
