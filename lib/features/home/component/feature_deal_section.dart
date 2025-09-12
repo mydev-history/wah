@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_m3_app/features/deal_detail/index.dart';
 
-class FourthSection extends StatelessWidget {
-  const FourthSection({super.key});
+class FeaturedDealsSection extends StatelessWidget {
+  const FeaturedDealsSection({super.key});
 
   @override
   Widget build(BuildContext context) {

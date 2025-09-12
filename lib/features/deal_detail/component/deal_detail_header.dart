@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FirstSection extends StatelessWidget {
-  const FirstSection({super.key});
+class DealDetailHeader extends StatelessWidget {
+  const DealDetailHeader({super.key});
 
   // Widget to display image inside a bordered box
   Widget _imageBox(String imageName) {

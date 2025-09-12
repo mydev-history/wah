@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_m3_app/features/deal_detail/component/first_section.dart';
+import 'package:my_m3_app/features/deal_detail/component/deal_detail_header.dart';
 import 'package:my_m3_app/features/deal_detail/component/second_section.dart';
 import 'package:my_m3_app/features/deal_detail/component/third_section.dart';
 import 'package:my_m3_app/features/deal_detail/component/fourth_section.dart';
@@ -28,7 +28,7 @@ class _DealDetailPageState extends State<DealDetailPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              FirstSection(),
+              DealDetailHeader(),
               SizedBox(height: 12),
               SecondSection(),
               SizedBox(height: 12),

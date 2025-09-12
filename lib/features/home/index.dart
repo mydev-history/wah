@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_m3_app/features/home/component/first_section.dart';
-import 'package:my_m3_app/features/home/component/fourth_section.dart';
-import 'package:my_m3_app/features/home/component/second_section.dart';
-import 'package:my_m3_app/features/home/component/third_section.dart';
+import 'package:my_m3_app/features/home/component/header.dart';
+import 'package:my_m3_app/features/home/component/feature_deal_section.dart';
+import 'package:my_m3_app/features/home/component/offer_carousel.dart';
+import 'package:my_m3_app/features/home/component/category_selector.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,10 +19,10 @@ class HomePage extends StatelessWidget {
           const SingleChildScrollView(
             child: Column(
               children: [
-                FirstSection(),
-                SecondSection(),
-                ThirdSection(),
-                FourthSection(),
+                Header(),
+                OfferCarousel(),
+                CategorySelector(),
+                FeaturedDealsSection(),
                 SizedBox(height: kBottomNavigationBarHeight + 80),
               ],
             ),

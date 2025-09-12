@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_m3_app/features/home/component/menu.dart';
 
-class FirstSection extends StatelessWidget {
-  const FirstSection({super.key});
+class Header extends StatelessWidget {
+  const Header({super.key});
 
   @override
   Widget build(BuildContext context) {

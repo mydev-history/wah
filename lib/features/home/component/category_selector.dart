@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ThirdSection extends StatelessWidget {
-  const ThirdSection({super.key});
+class CategorySelector extends StatelessWidget {
+  const CategorySelector({super.key});
 
   @override
   Widget build(BuildContext context) {
