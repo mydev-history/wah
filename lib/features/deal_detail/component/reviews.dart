@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NinthSection extends StatelessWidget {
-  const NinthSection({super.key});
+class Reviews extends StatelessWidget {
+  const Reviews({super.key});
 
   Widget _starsRow(int filled) {
     return Row(

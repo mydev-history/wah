@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EleventhSection extends StatelessWidget {
-  const EleventhSection({super.key});
+class RecommendedDeals extends StatelessWidget {
+  const RecommendedDeals({super.key});
 
   final List<Map<String, String>> items = const [
     {

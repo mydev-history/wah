@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SecondSection extends StatefulWidget {
-  const SecondSection({super.key});
+class DealImageCarousel extends StatefulWidget {
+  const DealImageCarousel({super.key});
 
   @override
-  State<SecondSection> createState() => _SecondSectionState();
+  State<DealImageCarousel> createState() => _DealImageCarouselState();
 }
 
-class _SecondSectionState extends State<SecondSection> {
+class _DealImageCarouselState extends State<DealImageCarousel> {
   final PageController _controller = PageController(viewportFraction: 0.95);
   int _page = 0;
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TenthSection extends StatelessWidget {
-  const TenthSection({super.key});
+class ViewAllReviewsBtn extends StatelessWidget {
+  const ViewAllReviewsBtn({super.key});
 
   @override
   Widget build(BuildContext context) {

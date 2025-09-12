@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TwelfthSection extends StatelessWidget {
-  const TwelfthSection({Key? key}) : super(key: key);
+class AddToCartBtn extends StatelessWidget {
+  const AddToCartBtn({super.key});
 
   LinearGradient _buttonGradient() {
     return const LinearGradient(

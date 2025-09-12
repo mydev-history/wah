@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SeventhSection extends StatelessWidget {
-  const SeventhSection({super.key});
+class CustomerMedia extends StatelessWidget {
+  const CustomerMedia({super.key});
 
   List<String> get _imgs => [
         'make an 3bhk cleaning service banner_1.png',

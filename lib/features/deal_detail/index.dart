@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:my_m3_app/features/deal_detail/component/deal_detail_header.dart';
-import 'package:my_m3_app/features/deal_detail/component/second_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/third_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/fourth_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/fifth_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/sixth_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/seventh_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/eighth_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/ninth_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/tenth_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/eleventh_section.dart';
-import 'package:my_m3_app/features/deal_detail/component/twelfth_section.dart';
+import 'package:my_m3_app/features/deal_detail/component/deal_image_carousel.dart';
+import 'package:my_m3_app/features/deal_detail/component/deal_info_bar.dart';
+import 'package:my_m3_app/features/deal_detail/component/deal_overview.dart';
+import 'package:my_m3_app/features/deal_detail/component/deal_option_selector.dart';
+import 'package:my_m3_app/features/deal_detail/component/vendor_info.dart';
+import 'package:my_m3_app/features/deal_detail/component/customer_medial.dart';
+import 'package:my_m3_app/features/deal_detail/component/review_card.dart';
+import 'package:my_m3_app/features/deal_detail/component/reviews.dart';
+import 'package:my_m3_app/features/deal_detail/component/view_all_reviews_btn.dart';
+import 'package:my_m3_app/features/deal_detail/component/recommended_deals.dart';
+import 'package:my_m3_app/features/deal_detail/component/add_to_cart_btn.dart';
 
 class DealDetailPage extends StatefulWidget {
   const DealDetailPage({super.key});
@@ -30,27 +30,27 @@ class _DealDetailPageState extends State<DealDetailPage> {
             children: [
               DealDetailHeader(),
               SizedBox(height: 12),
-              SecondSection(),
+              DealImageCarousel(),
               SizedBox(height: 12),
-              ThirdSection(),
+              DealInfoBar(),
               SizedBox(height: 12),
-              FourthSection(),
+              DealOverview(),
               SizedBox(height: 12),
-              FifthSection(),
+              DealOptionsSelector(),
               SizedBox(height: 12),
-              SixthSection(),
+              VendorInfo(),
               SizedBox(height: 12),
-              SeventhSection(),
+              CustomerMedia(),
               SizedBox(height: 12),
-              EighthSection(),
+              ReviewCard(),
               SizedBox(height: 12),
-              NinthSection(),
+              Reviews(),
               SizedBox(height: 12),
-              TenthSection(),
+              ViewAllReviewsBtn(),
               SizedBox(height: 24),
-              EleventhSection(),
+              RecommendedDeals(),
               SizedBox(height: 12),
-              TwelfthSection(),
+              AddToCartBtn(),
               SizedBox(height: 24),
             ],
           ),

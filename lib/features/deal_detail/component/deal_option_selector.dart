@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class FifthSection extends StatefulWidget {
-  const FifthSection({super.key});
+class DealOptionsSelector extends StatefulWidget {
+  const DealOptionsSelector({super.key});
 
   @override
-  State<FifthSection> createState() => _FifthSectionState();
+  State<DealOptionsSelector> createState() => _FifthSectionState();
 }
 
-class _FifthSectionState extends State<FifthSection> {
+class _FifthSectionState extends State<DealOptionsSelector> {
   int _selectedIndex = 0;
 
   Widget _priceText(String current, String? old) {

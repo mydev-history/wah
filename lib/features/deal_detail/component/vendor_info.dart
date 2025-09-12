@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SixthSection extends StatelessWidget {
-  const SixthSection({super.key});
+class VendorInfo extends StatelessWidget {
+  const VendorInfo({super.key});
 
   Widget _row(String text) {
     return Padding(
