@@ -5,7 +5,7 @@ class AddToCartBtn extends StatelessWidget {
 
   LinearGradient _buttonGradient() {
     return const LinearGradient(
-      colors: [Color(0xFFFF5F6D), Color(0xFFFFC371)], // red -> yellow/amber
+      colors: [Color(0xFFFF5F6D), Color(0xFFFFC371)], // red → amber
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
     );
@@ -13,27 +13,30 @@ class AddToCartBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: SizedBox(
-        width: double.infinity,
-        height: 52,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-              gradient: _buttonGradient(),
-              borderRadius: BorderRadius.circular(10)),
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.transparent,
-              shadowColor: Colors.transparent,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-            ),
-            child: const Text(
-              'Add to Cart',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+    return Container(
+      margin: const EdgeInsets.all(16),
+      height: 52,
+      decoration: BoxDecoration(
+        gradient: _buttonGradient(),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ElevatedButton(
+        onPressed: () {
+          // TODO: Add your logic
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        child: const Text(
+          'Add to Cart',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white, // ensure visible text
           ),
         ),
       ),

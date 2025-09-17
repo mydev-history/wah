@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_m3_app/features/home/component/header.dart';
-import 'package:my_m3_app/features/home/component/feature_deal_section.dart';
-import 'package:my_m3_app/features/home/component/offer_carousel.dart';
-import 'package:my_m3_app/features/home/component/category_selector.dart';
+import 'package:wah/features/home/component/header.dart';
+import 'package:wah/features/home/component/feature_deal_section.dart';
+import 'package:wah/features/home/component/offer_carousel.dart';
+import 'package:wah/features/home/component/category_selector.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,25 +10,36 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const int unseenCount = 3; // badge number
+    const double headerHeight = 280; // approximate height of header
 
     return Scaffold(
       body: Stack(
         clipBehavior: Clip.none,
         children: [
-          // Main scrollable content
-          const SingleChildScrollView(
-            child: Column(
-              children: [
-                Header(),
-                OfferCarousel(),
-                CategorySelector(),
-                FeaturedDealsSection(),
-                SizedBox(height: kBottomNavigationBarHeight + 80),
-              ],
+          // Scrollable content
+          const Padding(
+            padding: EdgeInsets.only(top: headerHeight),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  OfferCarousel(),
+                  CategorySelector(),
+                  FeaturedDealsSection(),
+                  SizedBox(height: kBottomNavigationBarHeight + 80),
+                ],
+              ),
             ),
           ),
 
-          // Fixed positioned calendar circle on the right, 10px above the footer
+          // Fixed header at top
+          const Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Header(),
+          ),
+
+          // Fixed calendar badge
           Positioned(
             right: 16,
             bottom: 10,
@@ -49,10 +60,10 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // Circle with gradient and badge INSIDE
-  Widget _buildCalendarBadge(int count) {
+  // Circle with gradient and badge
+  static Widget _buildCalendarBadge(int count) {
     return Container(
-      padding: const EdgeInsets.all(3), // white border
+      padding: const EdgeInsets.all(3),
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.white,
@@ -72,8 +83,6 @@ class HomePage extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             const Icon(Icons.calendar_today, color: Colors.white),
-
-            // Badge inside the circle (top-right)
             if (count > 0)
               Positioned(
                 top: 8,

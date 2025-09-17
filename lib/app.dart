@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_m3_app/features/home/index.dart';
+import 'package:wah/features/home/index.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

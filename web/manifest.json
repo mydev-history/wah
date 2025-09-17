@@ -1,6 +1,6 @@
 {
-    "name": "my_m3_app",
-    "short_name": "my_m3_app",
+    "name": "wah",
+    "short_name": "wah",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

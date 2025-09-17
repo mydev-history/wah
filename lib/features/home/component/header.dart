@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_m3_app/features/home/component/menu.dart';
+import 'package:wah/features/home/component/menu.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -7,6 +7,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 280, // fixed height
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/Rectangle 2039.png"),
@@ -15,8 +16,9 @@ class Header extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // Row 1
+          // Row 1 - Profile / Title / Icons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -24,20 +26,22 @@ class Header extends StatelessWidget {
                 onTap: () => ProfileMenu.show(context),
                 child: Image.asset("assets/icons/person1.png", height: 60),
               ),
-              const Text("Wah!",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              const Text(
+                "Wah!",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
               const Row(
                 children: [
                   Icon(Icons.shopping_basket_outlined),
                   SizedBox(width: 12),
                   Icon(Icons.alarm),
                 ],
-              )
+              ),
             ],
           ),
           const SizedBox(height: 16),
 
-          // Row 2
+          // Row 2 - Location
           const Row(
             children: [
               Icon(Icons.location_on_outlined),
@@ -49,7 +53,7 @@ class Header extends StatelessWidget {
           ),
           const SizedBox(height: 16),
 
-          // Row 3
+          // Row 3 - Search bar
           Row(
             children: [
               Expanded(
@@ -90,7 +94,7 @@ class Header extends StatelessWidget {
           ),
           const SizedBox(height: 16),
 
-          // Row 4 (categories)
+          // Row 4 - Categories
           SizedBox(
             height: 50,
             child: ListView(
@@ -116,7 +120,9 @@ class Header extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.horizontal(
-            left: Radius.circular(30), right: Radius.circular(30)),
+          left: Radius.circular(30),
+          right: Radius.circular(30),
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),

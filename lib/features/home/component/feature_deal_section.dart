@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_m3_app/features/deal_detail/index.dart';
+import 'package:wah/features/deal_detail/index.dart';
 
 class FeaturedDealsSection extends StatelessWidget {
   const FeaturedDealsSection({super.key});
