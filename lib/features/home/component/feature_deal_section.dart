@@ -1,28 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:wah/features/deal_detail/index.dart';
 
+class Deal {
+  final String title;
+  final String description;
+  final String img;
+  final double price;
+  final double oldPrice;
+  final double rating;
+  final int purchased;
+  final String discount;
+
+  Deal({
+    required this.title,
+    required this.description,
+    required this.img,
+    required this.price,
+    required this.oldPrice,
+    required this.rating,
+    required this.purchased,
+    required this.discount,
+  });
+}
+
 class FeaturedDealsSection extends StatelessWidget {
   const FeaturedDealsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Temporary deals data
     final items = [
-      {
-        "img": "assets/images/Product Image_1.png",
-        "title": "Festive Home cleaning"
-      },
-      {
-        "img": "assets/images/Product Image_2.png",
-        "title": "Live Music Concert Night"
-      },
-      {
-        "img": "assets/images/Product Image_3.png",
-        "title": "Chef's Special Meal Box"
-      },
-      {
-        "img": "assets/images/Product Image_4.png",
-        "title": "Buy 1 Get 1 on Sneakers"
-      },
+      Deal(
+        img: "assets/images/Product Image_1.png",
+        title: "Festive Home Cleaning",
+        description: "Includes kitchen, rooms & more...",
+        price: 50,
+        oldPrice: 100,
+        rating: 4.5,
+        purchased: 10,
+        discount: "50% OFF",
+      ),
+      Deal(
+        img: "assets/images/Product Image_2.png",
+        title: "Live Music Concert Night",
+        description: "Enjoy an amazing evening with live music",
+        price: 75,
+        oldPrice: 150,
+        rating: 4.8,
+        purchased: 25,
+        discount: "50% OFF",
+      ),
+      Deal(
+        img: "assets/images/Product Image_3.png",
+        title: "Chef's Special Meal Box",
+        description: "Delicious meals curated by top chefs",
+        price: 40,
+        oldPrice: 80,
+        rating: 4.7,
+        purchased: 18,
+        discount: "50% OFF",
+      ),
+      Deal(
+        img: "assets/images/Product Image_4.png",
+        title: "Buy 1 Get 1 on Sneakers",
+        description: "Trendy sneakers for your daily wear",
+        price: 60,
+        oldPrice: 120,
+        rating: 4.6,
+        purchased: 30,
+        discount: "50% OFF",
+      ),
     ];
 
     List<Widget> rows = [];
@@ -32,20 +79,12 @@ class FeaturedDealsSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: _buildProductCard(
-                items[i]["img"]!,
-                items[i]["title"]!,
-                context,
-              ),
+              child: _buildProductCard(items[i], context),
             ),
             const SizedBox(width: 12),
             if (i + 1 < items.length)
               Expanded(
-                child: _buildProductCard(
-                  items[i + 1]["img"]!,
-                  items[i + 1]["title"]!,
-                  context,
-                ),
+                child: _buildProductCard(items[i + 1], context),
               ),
           ],
         ),
@@ -62,7 +101,7 @@ class FeaturedDealsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildProductCard(String imgPath, String title, BuildContext context) {
+  Widget _buildProductCard(Deal deal, BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: Material(
@@ -72,7 +111,9 @@ class FeaturedDealsSection extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (_) => const DealDetailPage(),
+                builder: (_) => DealDetailPage(
+                  deal: deal, // pass the deal to detail page
+                ),
               ),
             );
           },
@@ -83,7 +124,7 @@ class FeaturedDealsSection extends StatelessWidget {
               Stack(
                 children: [
                   Image.asset(
-                    imgPath,
+                    deal.img,
                     height: 140,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -101,9 +142,12 @@ class FeaturedDealsSection extends StatelessWidget {
                           bottomRight: Radius.circular(8),
                         ),
                       ),
-                      child: const Text(
-                        "50% OFF",
-                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      child: Text(
+                        deal.discount,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ),
@@ -122,17 +166,18 @@ class FeaturedDealsSection extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2),
                 child: Text(
-                  title,
+                  deal.title,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 1),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 1),
                 child: Text(
-                  "Includes kitchen, rooms & more...",
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  deal.description,
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -143,20 +188,20 @@ class FeaturedDealsSection extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(
+                    Row(
                       children: [
                         Text(
-                          "\$50",
-                          style: TextStyle(
+                          "\$${deal.price.toStringAsFixed(0)}",
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(width: 6),
+                        const SizedBox(width: 6),
                         Text(
-                          "\$100",
-                          style: TextStyle(
+                          "\$${deal.oldPrice.toStringAsFixed(0)}",
+                          style: const TextStyle(
                             fontSize: 12,
                             color: Colors.grey,
                             decoration: TextDecoration.lineThrough,
@@ -180,17 +225,19 @@ class FeaturedDealsSection extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 2),
-                        const Text("4.5", style: TextStyle(fontSize: 12)),
+                        Text(deal.rating.toString(),
+                            style: const TextStyle(fontSize: 12)),
                       ],
                     ),
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 1),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 1),
                 child: Text(
-                  "10 Purchased",
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  "${deal.purchased} Purchased",
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
               ),
             ],

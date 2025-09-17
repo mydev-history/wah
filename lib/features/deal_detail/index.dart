@@ -11,9 +11,10 @@ import 'package:wah/features/deal_detail/component/reviews.dart';
 import 'package:wah/features/deal_detail/component/view_all_reviews_btn.dart';
 import 'package:wah/features/deal_detail/component/recommended_deals.dart';
 import 'package:wah/features/deal_detail/component/add_to_cart_btn.dart';
+import 'package:wah/features/home/component/feature_deal_section.dart';
 
 class DealDetailPage extends StatefulWidget {
-  const DealDetailPage({super.key});
+  const DealDetailPage({super.key, required Deal deal});
 
   @override
   State<DealDetailPage> createState() => _DealDetailPageState();

@@ -12,20 +12,36 @@ class HomePage extends StatelessWidget {
     const int unseenCount = 3; // badge number
     const double headerHeight = 280; // approximate height of header
 
+    // Temporary offers data
+    final tempOffers = [
+      Offer(
+          title: "Buy 1 and Get 1",
+          subtitle: "Limited Sale",
+          imageUrl: "assets/images/offer-card.png"),
+      Offer(
+          title: "Festive Discount",
+          subtitle: "Today Only",
+          imageUrl: "assets/images/offer-card.png"),
+      Offer(
+          title: "Special Bundle",
+          subtitle: "Grab Now",
+          imageUrl: "assets/images/offer-card.png"),
+    ];
+
     return Scaffold(
       body: Stack(
         clipBehavior: Clip.none,
         children: [
           // Scrollable content
-          const Padding(
-            padding: EdgeInsets.only(top: headerHeight),
+          Padding(
+            padding: const EdgeInsets.only(top: headerHeight),
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  OfferCarousel(),
-                  CategorySelector(),
-                  FeaturedDealsSection(),
-                  SizedBox(height: kBottomNavigationBarHeight + 80),
+                  OfferCarousel(offers: tempOffers),
+                  const CategorySelector(),
+                  const FeaturedDealsSection(),
+                  const SizedBox(height: kBottomNavigationBarHeight + 80),
                 ],
               ),
             ),

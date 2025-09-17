@@ -1,23 +1,45 @@
 import 'package:flutter/material.dart';
 
+class Offer {
+  final String title;
+  final String subtitle;
+  final String imageUrl;
+
+  Offer({
+    required this.title,
+    required this.subtitle,
+    required this.imageUrl,
+  });
+}
+
 class OfferCarousel extends StatelessWidget {
-  const OfferCarousel({super.key});
+  final List<Offer> offers;
+
+  const OfferCarousel({super.key, required this.offers});
 
   @override
   Widget build(BuildContext context) {
+    if (offers.isEmpty) {
+      return const SizedBox(
+        height: 160,
+        child: Center(child: Text("No offers available")),
+      );
+    }
+
     return SizedBox(
       height: 160,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.all(16),
-        itemCount: 3,
+        itemCount: offers.length,
         itemBuilder: (context, index) {
+          final offer = offers[index];
           return Container(
             width: 240,
             margin: const EdgeInsets.only(right: 16),
             decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage("assets/images/offer-card.png"),
+              image: DecorationImage(
+                image: AssetImage(offer.imageUrl),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(16),
@@ -26,18 +48,17 @@ class OfferCarousel extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Split into two lines
-                const Text(
-                  "Buy 1 and Get 1",
-                  style: TextStyle(
+                Text(
+                  offer.title,
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                const Text(
-                  "Limited Sale",
-                  style: TextStyle(
+                Text(
+                  offer.subtitle,
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -62,7 +83,9 @@ class OfferCarousel extends StatelessWidget {
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        // You can add navigation or callback here
+                      },
                       child: const Text(
                         "View Now",
                         style: TextStyle(
@@ -70,7 +93,7 @@ class OfferCarousel extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           );
